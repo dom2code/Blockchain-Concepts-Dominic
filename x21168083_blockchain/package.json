@@ -1,0 +1,22 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "blockchain transaction",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "big-number": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "ethereumjs-tx": "^2.1.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "web3": "^1.7.3"
+  }
+}
