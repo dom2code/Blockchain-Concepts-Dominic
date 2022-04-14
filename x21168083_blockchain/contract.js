@@ -21,6 +21,7 @@ const web3 = new Web3(rpcURL);
 console.log("connected to web3");
 
 // get the ABI (interface) for our contract (from remix)
+
 const abi = [
 	{
 		"anonymous": false,

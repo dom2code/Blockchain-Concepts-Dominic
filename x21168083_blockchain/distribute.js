@@ -26,7 +26,7 @@ privateKey = Buffer.from(process.env.SUPER_SECRET_PRIVATE_KEY, 'hex')
 
 const distribute = async() => {
     // read in the file
-    // let distributionAddresses = fs.readFileSync('./accounts.txt', 'utf8').split('\n');
+    //let distributionAddresses = fs.readFileSync('./accounts.txt', 'utf8').split('\n');
 
     // list the addresses
     console.log(`distro addresses are: ${ distributionAddresses}`);
@@ -41,8 +41,8 @@ const distribute = async() => {
     // console.log(`owner balance is ${ob}`);
 
     // get five percent of this balance
-    let fivePerCent = ob.div(20);
-    console.log(`five per cent of owner balance is ${fivePerCent}`);
+    // let fivePerCent = ob.div(20);
+    // console.log(`five per cent of owner balance is ${fivePerCent}`);
 
     // work out how many addresses in file (numberOfAddresses)
     // let numberOfAddresses = distributionAddresses.length;
@@ -55,8 +55,8 @@ const distribute = async() => {
     // loop through N accounts/addresses
     // for each account, do a transfer of distroAmount
     // for (looper = 0; looper < numberOfAddresses; looper++) {
-    //     console.log(`about to distribute ${tokenSymbol}, ${distributionAmount} tokens go to ${distributionAddresses[looper]}`)
-    //     // execute a ERC20transfer(ownerAddress, distributionAddresss[looper], distributionAmount);
+        // console.log(`about to distribute ${tokenSymbol}, ${distributionAmount} tokens go to ${distributionAddresses[looper]}`)
+      //  execute a ERC20transfer(ownerAddress, distributionAddresss[looper], distributionAmount);
     //     let retval = await contract.transferToken(distributionAddresses[looper], distributionAmount)
     // }
 
@@ -64,10 +64,13 @@ const distribute = async() => {
 
 const start = async(array) => {
     value = await contract.getBalanceOfAccount(ownerAddress);
-      console.log('Balance : ', value)
+      console.log('Balance of owner: ', value)
     let ob = new BigNumber(value);
     let fivePerCent = ob.div(20);
+    let tokenSymbol = await contract.getSymbol();
+    console.log(`symbol is ${tokenSymbol}`);
     console.log(`five per cent of owner balance is ${fivePerCent}`);
+    console.log(`distribution amount per address is ${fivePerCent}`);
   // val= splitpercentage(validval)// calculating 5% of the account
   
   
@@ -75,12 +78,12 @@ const start = async(array) => {
         if(array[i]) {
             let retval = await contract.transferToken(array[i],fivePerCent);
             console.log('loop incoming', array[i])
-            // await transferFunds(account1, array[i], val)
+            console.log(`about to distribute ${tokenSymbol}, ${fivePerCent} tokens go to ${array[i]}`)
             console.log(`transaction done for ${array[i]}`);
         }      
         
   }
 
 }
-// distribute()
+//  distribute()
 module.exports = { distribute, start }
