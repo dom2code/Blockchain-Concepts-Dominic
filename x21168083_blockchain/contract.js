@@ -370,18 +370,6 @@ const transferToken = async(toAccount, amount) => {
 
 
 
-// function splitpercentage(val) {
-//     console.log(typeof val )
-//     console.log('val', val)
-   
-//     // bigval = new BigNumber(val)
-//     console.log('big val', val)
-//     // return bigval.multipliedBy(0.05)
-
-//     // return bigval * 0.05
-//     return val * 0.05
-// }
-
 
 
 module.exports = { getSymbol, getDecimals, getBalanceOfAccount, getName, transferToken }
