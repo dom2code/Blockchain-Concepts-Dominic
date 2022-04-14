@@ -71,15 +71,15 @@ const start = async(array) => {
     console.log(`symbol is ${tokenSymbol}`);
     console.log(`five per cent of owner balance is ${fivePerCent}`);
     console.log(`distribution amount per address is ${fivePerCent}`);
-  // val= splitpercentage(validval)// calculating 5% of the account
+  
   
   
   for (i=0;i<array.length;i++ ) {
         if(array[i]) {
             let retval = await contract.transferToken(array[i],fivePerCent);
-            console.log('loop incoming', array[i])
+            console.log('Distributing to account', array[i])
             console.log(`about to distribute ${tokenSymbol}, ${fivePerCent} tokens go to ${array[i]}`)
-            console.log(`transaction done for ${array[i]}`);
+            console.log(`transaction completed for ${array[i]}`);
         }      
         
   }
